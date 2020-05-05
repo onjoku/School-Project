@@ -849,7 +849,27 @@ def take_inputs():
 import unittest
 
 class TestTrioChess(unittest.TestCase):
+    
     # define multiple sets of tests as functions with names that begin
+    def test_green_king_validate(self):
+        self.assertEqual(king_validate(BK, 'G10', 'I10'), False)#Front
+        self.assertEqual(king_validate(BK, 'B3', 'C4'), True)#Front
+        self.assertEqual(king_validate(BK, 'G1', 'A7'), False)#Front
+        self.assertEqual(knight_validate(BN1, 'E9', 'J10'), True) #test more
+        self.assertEqual(knight_validate(BN1, 'E9', 'I11'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'F11'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'G10'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'G4'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'F3'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'D3'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'C4'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'I6'), True)
+        self.assertEqual(knight_validate(BN1, 'E9', 'J5'), True)
+        
+            
+    
+
+    # assertion Set of multiple Rook's validation
     def test_blue_rooks_validate(self):
         self.assertEqual(rook_validate(BR1, 'A1', 'L12'), False)#False
         self.assertEqual(rook_validate(BR1, 'G10', 'H10'), True)#Back
@@ -857,13 +877,13 @@ class TestTrioChess(unittest.TestCase):
         self.assertEqual(rook_validate(BR1, 'G10', 'G12'), True)#Right
         self.assertEqual(rook_validate(BR1, 'G10', 'I10'), True)#Front
 
+        
+    # Assertion sets of multiple Knight's validation
     def test_red_Knight_validate(self):
         self.assertEqual(knight_validate(BK, 'G7', 'H12'), True)#Back
         self.assertNotEqual(knight_validate(BK, 'G10', 'G3'), False)#Horizontal
         self.assertEqual(knight_validate(BK, 'F4', 'G4'), True)#Right
         self.assertEqual(knight_validate(BK, 'G10', 'I10'), True)#Front
-
-    def test_green_king_validate(self):
         self.assertEqual(king_validate(BK, 'G10', 'I10'), False)#Front
         self.assertEqual(king_validate(BK, 'B3', 'C4'), True)#Front
         self.assertEqual(king_validate(BK, 'G1', 'A7'), False)#Front
@@ -879,6 +899,7 @@ class TestTrioChess(unittest.TestCase):
         self.assertEqual(knight_validate(BN1, 'E9', 'J5'), True)
         self.assertNotEqual(knight_validate(BR1, "G10", "L12"), False)
             
+
             
 
 if __name__ == '__main__':
